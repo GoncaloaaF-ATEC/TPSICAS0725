@@ -1,6 +1,5 @@
 #include <stdio.h>
-
-
+#include <string.h>
 /*
  *  array[3] = {nome, email, telefone}
  *
@@ -15,19 +14,21 @@
  */
 
 
-struct contacto {
+
+typedef struct contacto {
     char nome[30];
     char mail[150];
     char telefone[30];
     int idade;
-};
+} Contacto;
 
-void printContacto(struct contacto ct);
+
+void printContacto(Contacto ct);
 
 int main(void) {
 
 
-    struct contacto ct1 = {"Gonçalo",
+    Contacto ct1 = {"Gonçalo",
                            "goncalo@mail.com",
                            "12456780",
                            40};
@@ -40,6 +41,9 @@ int main(void) {
 
 
     //alterar o nome
+
+    strcpy(ct1.nome, "Novo nome 2");
+
 
 
     printContacto(ct1);
