@@ -26,9 +26,11 @@ int main(void) {
     printf("%s\n", pessoa.email);
     printf("%d/%d/%d\n", pessoa.data.dia, pessoa.data.mes, pessoa.data.ano);
 
-
-
     // Crie uma lista com 4 Pessoas e mostre os seus dados
+
+
+
+
 
 
     return 0;
