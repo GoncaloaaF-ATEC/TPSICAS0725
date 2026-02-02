@@ -10,6 +10,7 @@
 
 
 int main(void) {
+    printf("---------------- demo 1 ---------------------\n");
 
     int x = 13;
 
@@ -24,7 +25,7 @@ int main(void) {
     printf("o valor do ptr é: %d\n", *ptrx);
 
 
-    printf("------------------------\n");
+    printf("---------------- demo 2 ---------------------\n");
     // crie um ptr e uma var inteira(a var tem de ter valor), atribua o valor da var ao ptr
 
     int x3 = 83;
@@ -38,6 +39,37 @@ int main(void) {
 
     // mostre o conteudo do ptr
     printf("o valor do ptr é %d\n", *ptrx3);
+
+
+    printf("---------------- demo 3 ---------------------\n");
+
+
+    int a = 19;
+    int a2 = 19;
+
+    int *ptrA = &a;
+    int *ptrA2 = &a;
+
+
+
+    printf("%p\n", ptrA);
+    printf("%p\n", ptrA2);
+
+    printf("%i\n", ptrA == ptrA2);
+
+
+    *ptrA = 10;
+    printf("%i\n", *ptrA);
+    printf("%i\n", *ptrA2);
+
+    printf("---------------- demo 3 ---------------------\n");
+    
+    int b1 = 99;
+
+    int* ptrb1 = &b1;
+
+    int* ptrb2 = ptrb1;
+
 
     return 0;
 }
