@@ -63,12 +63,43 @@ int main(void) {
     printf("%i\n", *ptrA2);
 
     printf("---------------- demo 3 ---------------------\n");
-    
+
     int b1 = 99;
 
     int* ptrb1 = &b1;
 
     int* ptrb2 = ptrb1;
+
+
+    /*
+      Este codigo da erro. porque? resolva o erro
+        int *p;
+        *p = 10;
+     */
+/*
+    Alter o valor de x, sem alterar diretamente  a var x
+
+    int x = 5;
+    int *p = &x;
+
+    // completa aqui
+
+    printf("%d\n", x);
+ */
+    /*
+
+    int x = 10;
+    int y = 99;
+
+    int *p = &x;
+
+    printf("%d\n", *p);   // deve imprimir 10
+
+    // completa aqui
+
+    printf("%d\n", *p);   // deve imprimir 99
+
+    */
 
 
     return 0;
