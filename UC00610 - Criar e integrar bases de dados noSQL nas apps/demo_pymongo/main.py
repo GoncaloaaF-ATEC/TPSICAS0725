@@ -149,8 +149,8 @@ print("------")
 print("------")
 print("------")
 print("------")
-
-for aluno in alunos.find({}, {"nome": 1, "media": 1, "Estado": 1, "_id": 0}):
+query = {"nome": 1, "media": 1, "Estado": 1, "_id": 0}
+for aluno in alunos.find({}, query):
     print(aluno)
 
 print("------")
