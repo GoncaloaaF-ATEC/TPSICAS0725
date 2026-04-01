@@ -58,13 +58,59 @@ fun main() {
 
     println(resp)
 
-    val num = 5
-    when (num) {
-        1,2,3,6,9 -> println("Bloco 1")
-        5,4,7 -> println("Bloco 2")
+    var num = 5
+    var resp2 = when (num) {
+        1,2,3,6,9 -> "Bloco 1"
+        5,4,7 -> "Bloco 2"
+        else -> "Bloco 3"
+    }
+
+
+    println(resp2)
+    println("-----------------")
+
+    var num2 = IO.readln("mes2: ").toFloat()
+
+    when (num2) {
+        in 0f..5f -> println("Bloco 1")
+        in 5f..10f -> println("Bloco 2")
         else -> println("Bloco 3")
     }
 
+    println("-----------------")
+    println("-----------------")
+    var x = 10
+    var j = 21
+
+    when {
+        x % 2 == 1 || j % 2 == 1 -> println("Impar")
+        x % 2 == 0 -> println("Par")
+        else -> println("Bloco 6")
+    }
+
+    if (idade >= 18) {
+        println("Adulto")
+    }else if (idade > 12) {
+        println("Teen")
+    }else{
+        println("Criança")
+    }
+    println("-----------------")
+    println("-----------------")
+
+    idade = 12
+    var resp5 = when {
+        idade >= 18 -> {
+            println("Adulto")
+            println("msg2")
+        }
+        idade >= 12 -> println("Teen")
+        else -> println("Criança")
+    }
+
+    println("----")
+
+    println("----")
 
 
 
