@@ -1,6 +1,6 @@
 
 fun main() {
-
+ println("----Array---- ")
     val nome = arrayOf("Ana", "Joana", "Diana")
 
     println(nome[1])
@@ -58,7 +58,70 @@ fun main() {
        println(it)
    }
 
-    println("-------")
+    println("---- List -> estatica  ---")
+
+    var lst: List<Int> = listOf(1,2,3,4,5)
+
+    println(lst)
+    println(lst[1])
+    println("---")
+    for (elm in lst) {
+        println(elm)
+    }
+
+    println("---")
+
+    // lst[0] = 12
+    println(lst.size)
+
+    //println(lst[10])
+
+
+    var momesLst = nome.toList()
+    println(momesLst)
+
+    println("---")
+
+    println(nome)
+    println(momesLst.javaClass.simpleName)
+
+    println("---- mutable List ---")
+
+    var numML = mutableListOf(1,2,3,4,5)
+
+    println(numML)
+    numML[0] = 99
+    println(numML)
+    numML.add(88)
+    println(numML)
+
+    numML.remove(88)
+    println(numML)
+
+    numML.removeAt(2)
+
+    println(numML)
+
+    println(numML.size)
+    numML.clear()
+    println(numML)
+    println(numML.size)
+
+    numML.sortDescending()
+    println(numML)
+
+    numML = mutableListOf(1,2,3,4,5)
+
+    numML.sortDescending()
+
+    println(numML)
+
+    numML.sort()
+
+    println(numML)
+
+    println(numML.contains(6))
+    println(numML.contains(3))
 
     
 }// main()
