@@ -1,0 +1,1 @@
+data class Aluno(var nome: String, var idade: Int, var media: Double)
