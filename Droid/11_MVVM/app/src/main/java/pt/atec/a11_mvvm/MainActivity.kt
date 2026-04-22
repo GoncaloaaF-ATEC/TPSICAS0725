@@ -40,8 +40,10 @@ class MainActivity : ComponentActivity() {
 fun Home(vm: MainViewModel){
     val myTxt = vm.txt.collectAsState()
 
+
     // desafio - Colocar esta var no lado do VM
     var nomeTF by remember { mutableStateOf("") }
+    //var nomeTF = vm.txtTF.collectAsState()
 
     Column{
         Spacer(Modifier.height(25.dp))
@@ -57,7 +59,6 @@ fun Home(vm: MainViewModel){
 
         Button(onClick = {
             vm.setText(nomeTF)
-            nomeTF = ""
         }) {
             Text("Mudar nome")
         }

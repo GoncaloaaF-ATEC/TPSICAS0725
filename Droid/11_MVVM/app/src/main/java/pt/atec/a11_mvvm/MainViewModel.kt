@@ -15,6 +15,12 @@ class MainViewModel: ViewModel() {
     val txt: StateFlow<String> = _txt.asStateFlow()
         // get
 
+
+    private val _txtTF = MutableStateFlow("Gonçalo")
+    val txtTF: StateFlow<String> = _txtTF.asStateFlow()
+
+
+
     fun setText(novoNome: String){
         _txt.value = novoNome
     }
