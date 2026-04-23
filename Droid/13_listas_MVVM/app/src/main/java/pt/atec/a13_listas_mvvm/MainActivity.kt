@@ -6,12 +6,19 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
+import androidx.compose.animation.core.spring
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -20,8 +27,12 @@ import androidx.compose.runtime.setValue
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 
 class MainActivity : ComponentActivity() {
 
@@ -35,7 +46,7 @@ class MainActivity : ComponentActivity() {
 
             Column(modifier = Modifier
                 .padding(25.dp)){
-                mainApp(viewModel)
+                MainApp(viewModel)
 
             }
 
@@ -44,7 +55,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun mainApp(vm: MainViewModel){
+fun MainApp(vm: MainViewModel){
 
     var nome by remember { mutableStateOf("") }
     var idade by remember { mutableStateOf("") }
@@ -74,11 +85,17 @@ fun mainApp(vm: MainViewModel){
             TextField(
                 value = idade,
                 onValueChange = {
-                    idade = it
+                    if(it.all { ch -> ch.isDigit() }) {
+                        idade = it
+                    }
                 },
                 placeholder = {
                     Text("Idade")
                 },
+                keyboardOptions = KeyboardOptions(
+                    keyboardType = KeyboardType.Number
+                ),
+
                 modifier = Modifier
                     .weight(1f)
 
@@ -101,9 +118,47 @@ fun mainApp(vm: MainViewModel){
 
             Text("Add")
         } // Button
+        lista(vm)
     }// Column
 
+}
 
+
+@Composable
+fun lista(vm: MainViewModel){
+    var lista = vm.lista.collectAsStateWithLifecycle()
+
+    LazyColumn {
+        items(lista.value){ pessoa ->
+            PessoaRow(pessoa)
+        }// items
+    } // LazyColumn
+} // fun lista
+
+@Composable
+fun PessoaRow(pessoa: Pessoa){
+
+    Row(verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier
+        .fillMaxWidth()
+        .padding(12.dp)
+
+    ){
+
+        Box(modifier = Modifier
+            .size(50.dp)
+            .background(Color.Gray)
+        )
+
+        Spacer(modifier = Modifier
+            .width(12.dp))
+
+        Column {
+            Text(text = pessoa.nome)
+            Text(text = "Idade: ${pessoa.idade}")
+        }
+
+    }
 
 
 
