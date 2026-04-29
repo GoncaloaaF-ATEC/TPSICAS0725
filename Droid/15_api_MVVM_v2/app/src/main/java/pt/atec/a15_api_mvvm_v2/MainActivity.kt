@@ -51,7 +51,7 @@ fun MainApp(vm: MainViewModel){
     ) {
 
         Button(onClick = {
-
+            vm.carregarPosts()
         },
             modifier = Modifier.fillMaxWidth()
         ) {
@@ -60,7 +60,7 @@ fun MainApp(vm: MainViewModel){
 
         Spacer(modifier = Modifier.height(8.dp))
         Button(onClick = {
-
+                vm.criarPost()
         },
             modifier = Modifier.fillMaxWidth()
         ) {
