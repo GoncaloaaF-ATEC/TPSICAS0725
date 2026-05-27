@@ -167,7 +167,7 @@ fun ListaObj(){
     )
     var msg by remember { mutableStateOf("") }
     Column {
-        
+
         LazyColumn{
             items(pessoas){ pessoa ->
                 PessoaRow(pessoa, onClick = { nome, idade ->
@@ -203,7 +203,7 @@ fun PessoaRow(pessoa: Pessoa, onClick: (String, Int) -> Unit){
                 color = Color.White,
                 fontWeight = FontWeight.Bold)
 
-            Text("${pessoa.idade}")
+            Text("${pessoa.idade}", color = Color.White)
         }
 
 
